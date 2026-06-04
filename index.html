@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -30,6 +31,37 @@
             color: white;
             padding: 60px 40px;
             text-align: center;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+            background: #e9ecef;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 0% center;  /* 更靠左 */
+        }
+
+        .profile-info {
+            text-align: left;
         }
 
         header h1 {
@@ -162,6 +194,8 @@
             margin: 8px 0;
             line-height: 1.8;
         }
+
+
 
         /* 个人优势 */
         .advantages-grid {
@@ -335,6 +369,15 @@
                 font-size: 36px;
             }
 
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+
             nav ul {
                 flex-direction: column;
                 gap: 15px;
@@ -362,20 +405,31 @@
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
+
+
         }
 
         /* 平滑滚动 */
         html {
             scroll-behavior: smooth;
         }
+
+
     </style>
 </head>
 <body>
     <div class="container">
         <!-- 头部 -->
         <header id="home">
-            <h1>胡小峰</h1>
-            <p class="subtitle">求职意向：文员 / 行政助理</p>
+            <div class="profile-section">
+                <div class="profile-photo">
+                    <img src="personal_photo_square.jpg" alt="胡小峰个人照片">
+                </div>
+                <div class="profile-info">
+                    <h1>胡小峰</h1>
+                    <p class="subtitle">求职意向：文员 / 行政助理</p>
+                </div>
+            </div>
             <div class="contact-info">
                 <span>📞 电话: 182-0266-4952</span>
                 <span>📧 邮箱: <a href="mailto:2192183436@qq.com">2192183436@qq.com</a></span>
