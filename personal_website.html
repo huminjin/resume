@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡小峰 - 文员/行政助理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+
+        /* 头部区域 */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 20px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-info span {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.7;
+        }
+
+        /* 导航栏 */
+        nav {
+            background: #2E4057;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* 主体内容 */
+        main {
+            padding: 40px 60px;
+        }
+
+        section {
+            margin-bottom: 50px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section h2 {
+            font-size: 32px;
+            color: #2E4057;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* 教育背景 */
+        .education-item, .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .item-header h3 {
+            font-size: 22px;
+            color: #2E4057;
+        }
+
+        .date {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .item-detail {
+            color: #666;
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+
+        /* 个人优势 */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .advantage-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .advantage-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .advantage-card p {
+            font-size: 15px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* 技能列表 */
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s;
+        }
+
+        .skills-list li:hover {
+            transform: translateX(5px);
+            background: #e9ecef;
+        }
+
+        .skills-list strong {
+            color: #2E4057;
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        /* 作品集 */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #e9ecef;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .portfolio-icon {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-card h3 {
+            font-size: 20px;
+            color: #2E4057;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .portfolio-title {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .portfolio-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .portfolio-btn {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* 兼职经历 */
+        .parttime-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .parttime-item p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #2E4057;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 16px;
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            main {
+                padding: 30px 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header id="home">
+            <h1>胡小峰</h1>
+            <p class="subtitle">求职意向：文员 / 行政助理</p>
+            <div class="contact-info">
+                <span>📞 电话: 182-0266-4952</span>
+                <span>📧 邮箱: <a href="mailto:2192183436@qq.com">2192183436@qq.com</a></span>
+                <span>🎓 专业: 财务管理</span>
+            </div>
+        </header>
+
+        <!-- 导航 -->
+        <nav>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#education">教育背景</a></li>
+                <li><a href="#experience">在校经历</a></li>
+                <li><a href="#advantages">个人优势</a></li>
+                <li><a href="#skills">个人技能</a></li>
+                <li><a href="#portfolio">作品集</a></li>
+                <li><a href="#parttime">兼职经历</a></li>
+            </ul>
+        </nav>
+
+        <!-- 主体内容 -->
+        <main>
+            <!-- 教育背景 -->
+            <section id="education">
+                <h2>🎓 教育背景</h2>
+                <div class="education-item">
+                    <div class="item-header">
+                        <h3>天津商业大学宝德学院</h3>
+                        <span class="date">2021.09 - 2025.06</span>
+                    </div>
+                    <p class="item-detail"><strong>专业：</strong>财务管理专业 | 全日制本科</p>
+                    <p class="item-detail"><strong>专业排名：</strong>49/149 (前33%)</p>
+                    <p class="item-detail"><strong>核心课程：</strong>会计学原理、成本管理研究、财务分析</p>
+                </div>
+            </section>
+
+            <!-- 在校经历 -->
+            <section id="experience">
+                <h2>💼 在校经历</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h3>全国大学生创新创业大赛 | 主负责人</h3>
+                        <span class="date">2023.05 - 2024.06</span>
+                    </div>
+                    <p class="item-detail"><strong>项目主题：</strong>"趣茶园"数据化茶园项目，提供茶叶种植到销售一站式服务</p>
+                    <p class="item-detail"><strong>核心职责：</strong>带领5人团队完成商业策划书(8000字)、开题报告等10+份文档撰写与排版</p>
+                    <p class="item-detail"><strong>项目成果：</strong>获市级评奖，文案质量获评委"专业规范"评价</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h3>系学生会 | 办公室干事</h3>
+                        <span class="date">2021.09 - 2024.10</span>
+                    </div>
+                    <p class="item-detail"><strong>活动策划：</strong>策划并组织系级总结大会、送老迎新活动共6场，累计参与人数800+</p>
+                    <p class="item-detail"><strong>文案撰写：</strong>负责撰写策划案、活动PPT制作，活动满意度95%</p>
+                    <p class="item-detail"><strong>数据分析：</strong>活动结束后24小时内完成分析总结报告，为后续活动提供改进建议</p>
+                </div>
+            </section>
+
+            <!-- 个人优势 -->
+            <section id="advantages">
+                <h2>⭐ 个人优势</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <h3>📊 办公软件精通</h3>
+                        <p>独立完成30+份Word文档排版、20+份PPT制作、20+份Excel数据分析表</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>📈 Excel高级应用</h3>
+                        <p>熟练使用数据透视表、图表制作；毕业论文使用Excel完成全部数据统计与图表分析</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>🎯 数据处理能力</h3>
+                        <p>财务专业背景，擅长数据整理与分析，数据录入准确率99.5%</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>🤝 沟通协调能力</h3>
+                        <p>策划组织系级活动6场，获市级创新创业大赛奖项，具备优秀的文案撰写与排版能力</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>🚀 学习能力强</h3>
+                        <p>通过自学掌握办公软件高级功能，能快速适应新软件和新系统</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 个人技能 -->
+            <section id="skills">
+                <h2>🔧 个人技能</h2>
+                <ul class="skills-list">
+                    <li>
+                        <strong>💻 办公软件（精通）</strong>
+                        Excel（数据透视表、图表制作、数据分析）、PPT（会议报告制作、动画设计）、Word（规范文档排版、目录生成）
+                    </li>
+                    <li>
+                        <strong>📁 实际项目经验</strong>
+                        毕业论文数据分析（使用Excel完成数据清洗、统计、图表制作）、创新创业大赛文案排版（10+份文档）
+                    </li>
+                    <li>
+                        <strong>🗣️ 语言能力</strong>
+                        普通话二级乙等，能进行日常英语阅读与简单交流
+                    </li>
+                    <li>
+                        <strong>📋 专业技能</strong>
+                        财务数据分析、文档排版、会议记录、档案整理、办公自动化
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 作品集 -->
+            <section id="portfolio">
+                <h2>📂 作品集</h2>
+                <div class="portfolio-grid">
+                    <!-- 毕业论文 -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-icon">📄</div>
+                        <h3>毕业论文</h3>
+                        <p class="portfolio-title">价值链视角下小熊电器成本管理研究</p>
+                        <p class="portfolio-desc">
+                            以价值链理论为基础，分析小熊电器在采购、生产、销售等环节的成本管理现状，
+                            识别存在的问题并提出优化建议。使用Excel完成全部数据统计与图表分析。
+                        </p>
+                        <div class="portfolio-meta">
+                            <span>📅 2024.12</span>
+                            <span>🏷️ 财务管理</span>
+                        </div>
+                        <a href="价值链视角下小熊电器成本管理研究.pdf" target="_blank" class="portfolio-btn">📥 下载PDF</a>
+                    </div>
+
+                    <!-- 创新创业大赛项目 -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-icon">🚀</div>
+                        <h3>创新创业大赛项目</h3>
+                        <p class="portfolio-title">"趣茶园"数据化茶园项目</p>
+                        <p class="portfolio-desc">
+                            提供茶叶种植到销售一站式服务的数字化平台。作为主负责人，
+                            带领5人团队完成商业策划书(8000字)、开题报告等10+份文档撰写与排版。
+                            获市级评奖，文案质量获评委"专业规范"评价。
+                        </p>
+                        <div class="portfolio-meta">
+                            <span>📅 2023.05 - 2024.06</span>
+                            <span>🏷️ 项目策划</span>
+                        </div>
+                        <a href="#" class="portfolio-btn" onclick="event.preventDefault(); alert('项目文档可应要求提供');">📋 查看详情</a>
+                    </div>
+
+                    <!-- Excel数据分析作品 -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-icon">📊</div>
+                        <h3>Excel数据分析作品</h3>
+                        <p class="portfolio-title">财务数据可视化分析</p>
+                        <p class="portfolio-desc">
+                            使用Excel数据透视表、图表制作功能，完成20+份数据分析表。
+                            擅长数据清洗、统计分析、图表制作，数据录入准确率99.5%。
+                            可熟练运用财务分析工具进行数据处理。
+                        </p>
+                        <div class="portfolio-meta">
+                            <span>📅 2021 - 2025</span>
+                            <span>🏷️ 数据分析</span>
+                        </div>
+                        <a href="#" class="portfolio-btn" onclick="event.preventDefault(); alert('数据分析样例可应要求提供');">📊 查看样例</a>
+                    </div>
+
+                    <!-- PPT制作作品 -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-icon">🎨</div>
+                        <h3>PPT制作作品</h3>
+                        <p class="portfolio-title">会议报告与活动展示</p>
+                        <p class="portfolio-desc">
+                            独立完成20+份PPT制作，包括会议报告、活动展示、学术汇报等。
+                            熟练运用动画设计、版式布局，活动满意度95%。
+                            具备优秀的文案撰写与排版能力。
+                        </p>
+                        <div class="portfolio-meta">
+                            <span>📅 2021 - 2025</span>
+                            <span>🏷️ 文档设计</span>
+                        </div>
+                        <a href="#" class="portfolio-btn" onclick="event.preventDefault(); alert('PPT作品集可应要求提供');">🎬 查看作品</a>
+                    </div>
+
+                    <!-- 商业计划书 -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-icon">📑</div>
+                        <h3>商业计划书</h3>
+                        <p class="portfolio-title">"趣茶旅"数字化茶园项目计划书</p>
+                        <p class="portfolio-desc">
+                            详细阐述"趣茶旅"项目的商业模式、市场分析、运营规划等内容。
+                            作为主负责人，带领团队完成8000字商业策划书撰写与排版。
+                            获市级评奖，文案质量获评委"专业规范"评价。
+                        </p>
+                        <div class="portfolio-meta">
+                            <span>📅 2023.05 - 2024.06</span>
+                            <span>🏷️ 商业策划</span>
+                        </div>
+                        <a href="趣茶旅计划书.docx" class="portfolio-btn" download>📥 下载文档</a>
+                    </div>
+
+                    <!-- 项目答辩PPT -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-icon">🎦</div>
+                        <h3>项目答辩PPT</h3>
+                        <p class="portfolio-title">"趣茶旅"项目结题答辩</p>
+                        <p class="portfolio-desc">
+                            创新创业大赛决赛答辩PPT，包含项目背景、市场分析、商业模式、
+                            财务预测、团队介绍等完整内容。设计精美，逻辑清晰，
+                            助力项目获得市级奖项。
+                        </p>
+                        <div class="portfolio-meta">
+                            <span>📅 2024.06</span>
+                            <span>🏷️ PPT设计</span>
+                        </div>
+                        <a href="趣茶旅答辩.pptx" class="portfolio-btn" download>📥 下载PPT</a>
+                    </div>
+
+                    <!-- 财务分析PPT -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-icon">📊</div>
+                        <h3>财务分析PPT</h3>
+                        <p class="portfolio-title">杜邦分析体系与应用</p>
+                        <p class="portfolio-desc">
+                            详细讲解杜邦财务分析体系，包含ROE分解、指标解读、
+                            案例分析和实际应用。运用图表、动画等可视化手段，
+                            使复杂的财务概念通俗易懂。
+                        </p>
+                        <div class="portfolio-meta">
+                            <span>📅 2024</span>
+                            <span>🏷️ 财务教学</span>
+                        </div>
+                        <a href="财务分析杜邦分析.pptx" class="portfolio-btn" download>📥 下载PPT</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 兼职经历 -->
+            <section id="parttime">
+                <h2>💼 兼职经历</h2>
+                <div class="parttime-item">
+                    <p><strong>2023.06 - 2023.09</strong> | 海底捞服务员</p>
+                    <p>负责客户接待，协助店长整理每日销售数据，使用Excel制作日报</p>
+                </div>
+                <div class="parttime-item">
+                    <p><strong>2024.07 - 2024.12</strong> | 幸也精品咖啡学徒</p>
+                    <p>负责门店物资盘点与库存管理，使用Excel记录每日进出库数据</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>—— 期待为您提供专业的文职服务 ——</p>
+            <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">© 2025 胡小峰. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // 平滑滚动增强
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // 导航栏高亮
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = '#667eea';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
